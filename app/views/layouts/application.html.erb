@@ -5,25 +5,64 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/2cfe60a4bc.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      
      <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
+      <ul>
+        <li>
+          <%= link_to "Home", user_path(current_user) %>
+        </li>
+
+        <li>
+          <%= link_to ' users', users_path %>
+        </li>
+
+        <li>
+          <%= link_to ' books', books_path %>
+
+        </li>
+
+        <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
     <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+        <li>
+          <%= link_to ' home', root_path %>
+        </li>
+
+        <li>
+          <%= link_to ' about', homes_top_path %>
+        </li>
+
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+
+        <li>
+          <%= link_to "Log in", new_user_session_path %>
+        </li>
     <% end %>
-    
-    
+
+    </header>
+
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+      <div class="row">
+       <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+       </div>
+      </div>
+     </div>
+    </footer>
+
   </body>
 </html>
