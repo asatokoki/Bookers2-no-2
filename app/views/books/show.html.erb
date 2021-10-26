@@ -27,7 +27,8 @@
           <td><%= attachment_image_tag @post.user, :profile_image, size: "50x50", fallback: "img_7c62aaccd6714ba4a1fedfaf0d5702c3142297.jpg" %></td>
           <td><%= link_to @post.title, book_path(@post.id) %></td>
           <td><%= @post.body %></td>
-
+          <td><%= link_to 'Edit', edit_book_path%></td>
+          <td><%= link_to 'Destroy' %></td>
         </tr>
 
     </tbody>
