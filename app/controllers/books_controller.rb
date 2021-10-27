@@ -31,11 +31,14 @@ def edit
 end
 
 def update
-    book = Book.find(params[:id])
-    book.update(book_params)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
     flash[:book_update_notice] = "You have updated book successfully."
 
-    redirect_to book_path(book.id)
+        redirect_to book_path(@book.id)
+    else
+        render 'books/edit'
+    end
 
 end
 

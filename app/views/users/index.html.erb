@@ -11,7 +11,7 @@
           <tr>
             <th>image</th>
             <th>name</th>
-            <th></th
+            <th></th>
           </tr>
         </thead>
       <tbody>
@@ -21,7 +21,7 @@
         <tr>
           <td><%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "img_7c62aaccd6714ba4a1fedfaf0d5702c3142297.jpg" %></td>
           <td><%= user.name %></td>
-          <td><%= link_to "show", user_path(user) %></td>
+          <td><%= link_to "Show", user_path(user) %></td>
         </tr>
 
     <% end %>
