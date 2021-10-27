@@ -1,5 +1,16 @@
 
 
+<% if flash[:book_create_notice] %>
+    <div class="flash">
+         <%= flash[:book_create_notice] %>
+    </div>
+<% end %>
+<% if flash[:book_update_notice] %>
+    <div class="flash">
+         <%= flash[:book_update_notice] %>
+    </div>
+<% end %>
+
 
 
 
@@ -22,13 +33,17 @@
       <tbody>
 
 
-
         <tr>
-          <td><%= attachment_image_tag @post.user, :profile_image, size: "50x50", fallback: "img_7c62aaccd6714ba4a1fedfaf0d5702c3142297.jpg" %></td>
+          <td>
+            <%= link_to  user_path(@post.user) do %>
+              <%= @post.user.name %>
+              <%= attachment_image_tag @post.user, :profile_image, size: "50x50", fallback: "img_7c62aaccd6714ba4a1fedfaf0d5702c3142297.jpg" %>
+            <% end %>
+          </td>
           <td><%= link_to @post.title, book_path(@post.id) %></td>
           <td><%= @post.body %></td>
           <td><%= link_to 'Edit', edit_book_path%></td>
-          <td><%= link_to 'Destroy' %></td>
+          <td><%= link_to 'Destroy', book_path, method: :delete %></td>
         </tr>
 
     </tbody>
